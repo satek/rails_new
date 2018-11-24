@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  postgres-data:
+  redis-data:
+
+services:
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - redis-data:/data
+  postgres:
+    image: postgres:11.1-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  web:
+    build:
+      context: .
+    command: rails s
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/root/app
+    depends_on:
+      - postgres
+      - redis
+
