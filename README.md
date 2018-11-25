@@ -2,11 +2,12 @@
 
 To generate a new app named myapp run:
 ```sh
-docker run -it -e "APP_NAME=myapp" -v `pwd`:/root/workdir satek/rails_new
+docker run -e "APP_NAME=myapp" -v `pwd`:/root/workdir satek/rails_new
 ```
 
-This will simply create a new rails app in myapp folder, same as running "rails new" locally would.
-In addition it will add rspec, guard and set up the Docker related files.
+This will simply create a new rails app in myapp folder, same as running "rails new" locally would. The newly created directory will be owned by root. You probably want to change that by running `sudo chown -R youruser:youruser myapp`.
+
+In addition the image will add rspec, guard and set up Docker related files.
 
 `docker-compose.yml` sets up Postgres and Redis services and `database.yml` is modified to make use of the Postgres service.
 
