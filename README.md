@@ -12,7 +12,8 @@ In addition it will add rspec, guard and set up the Docker related files.
 
 
 The idea is to be able to quickly generate an app and be able to run it immediately with the database set up.
-When the app is generated `cd` into the folder and run `docker-compose up`. Now you can run other rails commands from another terminal or tmux pane.
-E.g. `docker-compose run web rails db:setup` to set up the database. `docker-compose run web rails c` to start a Rails console.
+When the app is generated `cd` into the folder and run `docker-compose up`. Now you should be able to send requests to your web app at http://localhost:3000 and run other rails commands from another terminal or tmux pane.
 
-`web` in the commands above is a service defined in `docker-compose.yml`. You can of course add additional services such as `sidekiq` to the same file.
+For example, `docker-compose run web rails db:setup` to set up the database. `docker-compose run web rails c` to start a Rails console.
+
+`web` in the commands above is a service defined in `docker-compose.yml`. You can, of course, add additional services such as `sidekiq` to the same file.
