@@ -1,4 +1,4 @@
-rails new $APP_NAME -T -d postgresql
+rails new $APP_NAME -T -d postgresql $OPTIONS
 
 cp $DOCKERFILES/* $APP_NAME/
 cp /root/database.yml $APP_NAME/config/
