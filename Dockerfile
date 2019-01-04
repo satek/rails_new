@@ -1,10 +1,10 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.0-alpine
 
 RUN apk add alpine-sdk postgresql-dev libpq tzdata nodejs git
 
 WORKDIR /root/workdir
 
-RUN gem install rails -v 5.2.1
+RUN gem install rails -v 5.2.2
 RUN gem install rspec-rails -v 3.8.1
 RUN gem install guard-rails -v 0.8.1
 RUN gem install pg -v 1.1.3

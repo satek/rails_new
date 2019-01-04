@@ -1,4 +1,6 @@
-FROM ruby:2.5.3-alpine as builder
+ENV DOCKER_RUBY_VERSION 2.6.0
+
+FROM ruby:${DOCKER_RUBY_VERSION}-alpine as builder
 
 RUN apk add alpine-sdk postgresql-dev libpq tzdata nodejs
 
@@ -14,7 +16,7 @@ RUN gem install bundler --no-ri --no-rdoc
 RUN bundle install
 
 
-FROM ruby:2.5.3-alpine
+FROM ruby:${DOCKER_RUBY_VERSION}-alpine
 
 RUN apk add libpq tzdata nodejs
 
